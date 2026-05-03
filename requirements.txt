@@ -1,0 +1,21 @@
+# Core data stack
+numpy>=1.26,<3
+pandas>=2.2,<3
+scipy>=1.13,<2
+matplotlib>=3.8,<4
+
+# ML / anomaly methods
+scikit-learn>=1.5,<2
+tslearn>=0.6.4
+stumpy>=1.13
+tqdm>=4.66
+
+# Dev / testing
+pytest>=8.0
+
+# Notebook support
+#jupyter>=1.0
+
+# TSB-UAD is installed from local clone (not PyPI in this flow):
+# 1) git clone https://github.com/TheDatumOrg/TSB-UAD.git external/TSB-UAD
+# 2) pip install -e external/TSB-UAD --no-build-isolation

@@ -1,0 +1,612 @@
+{
+  "created_at_utc": "2026-05-03T11:35:36.464924+00:00",
+  "scan_config": {
+    "mgab_root": "data\\raw\\TSB-UAD-Public\\MGAB",
+    "segment_length": 25000,
+    "segment_step": 1000,
+    "target_segment_ratio": 0.005,
+    "segment_ratio_bounds": [
+      0.002,
+      0.15
+    ],
+    "full_ratio_bounds": [
+      0.0015,
+      0.15
+    ],
+    "period_min_lag": 10,
+    "period_max_lag": 2000,
+    "period_floor": 50
+  },
+  "all_files": [
+    {
+      "file_name": "1.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\1.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        32708,
+        90307
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0024,
+        0.0024,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5898578572888244,
+      "full_ratio_candidate": true,
+      "best_start": 61000,
+      "best_end": 86000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "10.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\10.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        38478,
+        92646
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.004,
+        0.0024
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5953728417146895,
+      "full_ratio_candidate": true,
+      "best_start": 38000,
+      "best_end": 63000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "2.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\2.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        33098,
+        87940
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0024,
+        0.0032,
+        0.0024
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5924052733841346,
+      "full_ratio_candidate": true,
+      "best_start": 38000,
+      "best_end": 63000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "3.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\3.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        29258,
+        85766
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0032,
+        0.0032,
+        0.0016
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.594461230471312,
+      "full_ratio_candidate": true,
+      "best_start": 26000,
+      "best_end": 51000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "4.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\4.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        41300,
+        87029
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.004,
+        0.0024
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5882346193097577,
+      "full_ratio_candidate": true,
+      "best_start": 41000,
+      "best_end": 66000,
+      "best_segment_anomaly_ratio": 0.0048,
+      "best_segment_anomaly_count": 120,
+      "anomaly_count_in_segment": 120,
+      "distance_to_target_ratio": 0.00020000000000000052,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "5.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\5.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        42441,
+        91897
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.0032,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5912438114790706,
+      "full_ratio_candidate": true,
+      "best_start": 41000,
+      "best_end": 66000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "6.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\6.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        44340,
+        90174
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.0032,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.595220457216783,
+      "full_ratio_candidate": true,
+      "best_start": 37000,
+      "best_end": 62000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "7.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\7.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        35544,
+        86023
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0024,
+        0.00248,
+        0.00312
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5977313440107824,
+      "full_ratio_candidate": true,
+      "best_start": 34000,
+      "best_end": 59000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "8.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\8.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        45134,
+        88833
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0008,
+        0.004,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5939335964510857,
+      "full_ratio_candidate": true,
+      "best_start": 61000,
+      "best_end": 86000,
+      "best_segment_anomaly_ratio": 0.0048,
+      "best_segment_anomaly_count": 120,
+      "anomaly_count_in_segment": 120,
+      "distance_to_target_ratio": 0.00020000000000000052,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "9.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\9.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        38948,
+        88471
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.0032,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.6004392585938176,
+      "full_ratio_candidate": true,
+      "best_start": 61000,
+      "best_end": 86000,
+      "best_segment_anomaly_ratio": 0.0048,
+      "best_segment_anomaly_count": 120,
+      "anomaly_count_in_segment": 120,
+      "distance_to_target_ratio": 0.00020000000000000052,
+      "full_periods_in_best_segment": 500.0
+    }
+  ],
+  "candidates_passing": [
+    {
+      "file_name": "4.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\4.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        41300,
+        87029
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.004,
+        0.0024
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5882346193097577,
+      "full_ratio_candidate": true,
+      "best_start": 41000,
+      "best_end": 66000,
+      "best_segment_anomaly_ratio": 0.0048,
+      "best_segment_anomaly_count": 120,
+      "anomaly_count_in_segment": 120,
+      "distance_to_target_ratio": 0.00020000000000000052,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "8.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\8.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        45134,
+        88833
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0008,
+        0.004,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5939335964510857,
+      "full_ratio_candidate": true,
+      "best_start": 61000,
+      "best_end": 86000,
+      "best_segment_anomaly_ratio": 0.0048,
+      "best_segment_anomaly_count": 120,
+      "anomaly_count_in_segment": 120,
+      "distance_to_target_ratio": 0.00020000000000000052,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "9.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\9.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        38948,
+        88471
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.0032,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.6004392585938176,
+      "full_ratio_candidate": true,
+      "best_start": 61000,
+      "best_end": 86000,
+      "best_segment_anomaly_ratio": 0.0048,
+      "best_segment_anomaly_count": 120,
+      "anomaly_count_in_segment": 120,
+      "distance_to_target_ratio": 0.00020000000000000052,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "1.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\1.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        32708,
+        90307
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0024,
+        0.0024,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5898578572888244,
+      "full_ratio_candidate": true,
+      "best_start": 61000,
+      "best_end": 86000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "10.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\10.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        38478,
+        92646
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.004,
+        0.0024
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5953728417146895,
+      "full_ratio_candidate": true,
+      "best_start": 38000,
+      "best_end": 63000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "2.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\2.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        33098,
+        87940
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0024,
+        0.0032,
+        0.0024
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5924052733841346,
+      "full_ratio_candidate": true,
+      "best_start": 38000,
+      "best_end": 63000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "3.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\3.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        29258,
+        85766
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0032,
+        0.0032,
+        0.0016
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.594461230471312,
+      "full_ratio_candidate": true,
+      "best_start": 26000,
+      "best_end": 51000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "5.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\5.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        42441,
+        91897
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.0032,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5912438114790706,
+      "full_ratio_candidate": true,
+      "best_start": 41000,
+      "best_end": 66000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "6.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\6.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        44340,
+        90174
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0016,
+        0.0032,
+        0.0032
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.595220457216783,
+      "full_ratio_candidate": true,
+      "best_start": 37000,
+      "best_end": 62000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    },
+    {
+      "file_name": "7.test.out",
+      "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\7.test.out",
+      "length": 100000,
+      "anomaly_ratio_full": 0.002,
+      "anomaly_count_full": 200,
+      "anomaly_indices_range": [
+        35544,
+        86023
+      ],
+      "anomaly_density_per_quartile": [
+        0.0,
+        0.0024,
+        0.00248,
+        0.00312
+      ],
+      "period_estimated_raw": 49,
+      "period_estimated": 50,
+      "period_strength": 0.5977313440107824,
+      "full_ratio_candidate": true,
+      "best_start": 34000,
+      "best_end": 59000,
+      "best_segment_anomaly_ratio": 0.004,
+      "best_segment_anomaly_count": 100,
+      "anomaly_count_in_segment": 100,
+      "distance_to_target_ratio": 0.001,
+      "full_periods_in_best_segment": 500.0
+    }
+  ],
+  "recommended": {
+    "file_name": "4.test.out",
+    "file_path": "data\\raw\\TSB-UAD-Public\\MGAB\\4.test.out",
+    "length": 100000,
+    "anomaly_ratio_full": 0.002,
+    "anomaly_count_full": 200,
+    "anomaly_indices_range": [
+      41300,
+      87029
+    ],
+    "anomaly_density_per_quartile": [
+      0.0,
+      0.0016,
+      0.004,
+      0.0024
+    ],
+    "period_estimated_raw": 49,
+    "period_estimated": 50,
+    "period_strength": 0.5882346193097577,
+    "full_ratio_candidate": true,
+    "best_start": 41000,
+    "best_end": 66000,
+    "best_segment_anomaly_ratio": 0.0048,
+    "best_segment_anomaly_count": 120,
+    "anomaly_count_in_segment": 120,
+    "distance_to_target_ratio": 0.00020000000000000052,
+    "full_periods_in_best_segment": 500.0
+  }
+}

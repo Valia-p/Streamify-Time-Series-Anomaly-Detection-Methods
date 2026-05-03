@@ -1,0 +1,45 @@
+# OS / filesystem noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE settings
+.vscode/
+.idea/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Project runtime artifacts
+results/runs/
+results/logs/
+*.log
+
+# Local external dependencies (cloned locally when needed)
+external/TSB-UAD/
+
+# Large benchmark data (local only)
+data/raw/TSB-UAD-Public/
+data/raw/__MACOSX/
+data/raw/*.zip

@@ -1,0 +1,72 @@
+[
+  {
+    "file": "machine-3-11.test.csv@26.out",
+    "used_period": 150,
+    "distance_to_[80,200]": 0.0,
+    "distance_to_center_140": 10.0,
+    "period_strength": 0.04261165757170628,
+    "estimated_period_autocorr": 150,
+    "estimated_period_fft": 70.50614250614251,
+    "autocorr_fft_ratio": 2.1274742124337886,
+    "autocorr_fft_consistent": true,
+    "period_source": "autocorr+fft",
+    "anomaly_ratio": 0.006899916364650125,
+    "length": 28696
+  },
+  {
+    "file": "machine-1-5.test.csv@7.out",
+    "used_period": 121,
+    "distance_to_[80,200]": 0.0,
+    "distance_to_center_140": 19.0,
+    "period_strength": 0.21379626112788794,
+    "estimated_period_autocorr": 121,
+    "estimated_period_fft": 1481.625,
+    "autocorr_fft_ratio": 12.244834710743802,
+    "autocorr_fft_consistent": false,
+    "period_source": "autocorr_mismatch_fft",
+    "anomaly_ratio": 0.004218341348181895,
+    "length": 23706
+  },
+  {
+    "file": "machine-1-8.test.csv@11.out",
+    "used_period": 120,
+    "distance_to_[80,200]": 0.0,
+    "distance_to_center_140": 20.0,
+    "period_strength": 0.5887507280431405,
+    "estimated_period_autocorr": 120,
+    "estimated_period_fft": 19.99915611814346,
+    "autocorr_fft_ratio": 6.000253175239461,
+    "autocorr_fft_consistent": false,
+    "period_source": "autocorr_mismatch_fft",
+    "anomaly_ratio": 0.03219545128486434,
+    "length": 23699
+  },
+  {
+    "file": "machine-2-9.test.csv@16.out",
+    "used_period": 120,
+    "distance_to_[80,200]": 0.0,
+    "distance_to_center_140": 20.0,
+    "period_strength": 0.44314812055518543,
+    "estimated_period_autocorr": 120,
+    "estimated_period_fft": 15.006269592476487,
+    "autocorr_fft_ratio": 7.99665761437226,
+    "autocorr_fft_consistent": false,
+    "period_source": "autocorr_mismatch_fft",
+    "anomaly_ratio": 0.061102987257154795,
+    "length": 28722
+  },
+  {
+    "file": "machine-2-9.test.csv@11.out",
+    "used_period": 120,
+    "distance_to_[80,200]": 0.0,
+    "distance_to_center_140": 20.0,
+    "period_strength": 0.44181970975014095,
+    "estimated_period_autocorr": 120,
+    "estimated_period_fft": 15.006269592476487,
+    "autocorr_fft_ratio": 7.99665761437226,
+    "autocorr_fft_consistent": false,
+    "period_source": "autocorr_mismatch_fft",
+    "anomaly_ratio": 0.061102987257154795,
+    "length": 28722
+  }
+]
