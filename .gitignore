@@ -37,9 +37,8 @@ results/logs/
 *.log
 
 # Local external dependencies (cloned locally when needed)
-external/TSB-UAD/
+external/
+**/external/
 
 # Large benchmark data (local only)
-data/raw/TSB-UAD-Public/
-data/raw/__MACOSX/
-data/raw/*.zip
+data/raw/
