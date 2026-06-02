@@ -81,6 +81,20 @@ Each `.out` file contains two columns: the time series values and a binary anoma
 
 ## Running the Notebook
 
+There are two ways to run the experiments — choose whichever fits your setup.
+
+### Option 1 — Google Colab
+
+A ready-to-run Colab version of the notebook is available here:
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KJ0Am3HKL1kJlk9lhpyoVbI43nJzOc_W?usp=sharing)
+
+The Colab notebook reads datasets from Google Drive. Mount your Drive and place the TSB-UAD-Public datasets under `MyDrive/Time-Series Anomaly Detection/TSB-UAD-Public/` before running.
+
+---
+
+### Option 2 — Local (Jupyter / VS Code)
+
 ### Prerequisites
 
 **1. Install Python dependencies**
