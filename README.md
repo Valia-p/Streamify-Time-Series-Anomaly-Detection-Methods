@@ -1,1 +1,183 @@
-# Streamify-Time-Series-Anomaly-Detection-Methods
+# Streamify — Time Series Anomaly Detection in Streaming Settings
+
+An experimental study evaluating three classical anomaly detection methods — **Isolation Forest**, **OCSVM**, and **LSTM** — in both offline (batch) and streaming settings, benchmarked against the **SAND** streaming baseline. Each method is tested in its standard offline form and in two streaming variants: a naïve batch adaptation (V1) and an improved adaptation that addresses concept drift or catastrophic forgetting (V2). Experiments are conducted across **10 time series** spanning **5 normality levels** of increasing cross-domain complexity.
+
+---
+
+## Table of Contents
+
+- [Methods](#methods)
+- [Normality Levels](#normality-levels)
+- [Datasets](#datasets)
+- [Running the Notebook](#running-the-notebook)
+- [Project Structure](#project-structure)
+- [Outputs](#outputs)
+
+---
+
+## Methods
+
+### Offline Baselines
+
+| Method | Description |
+|--------|-------------|
+| **IForest** | Isolation Forest trained on the full time series using a sliding-window feature representation. |
+| **OCSVM** | One-Class SVM with RBF kernel, trained on the first 10% of each series. |
+| **LSTM** | LSTM autoencoder trained on clean subsequences; anomaly score based on reconstruction error via Fourier distance. |
+| **SAND** | Online SAND — the streaming baseline from the TSB-UAD benchmark, included for direct comparison. |
+
+### Streaming Variants
+
+| Method | Variant 1 — Naïve | Variant 2 — Improved |
+|--------|-------------------|----------------------|
+| **IForest** | Processes each incoming batch independently; model retrained from scratch on every batch. | **Drift-Aware IForest**: trains on the first batch; uses EMA of anomaly scores to detect concept drift; only retrains when drift is detected (`drift_threshold = 2.0`). |
+| **OCSVM** | Applies OCSVM to each batch independently with no state carried across batches. | **KMeans-Warm OCSVM**: trains on the first batch; subsequent batches are scored using the existing model, which is updated only when the cluster structure shifts significantly. |
+| **LSTM** | Retrains the LSTM from scratch on each batch independently — no memory across batches. | **Experience Replay LSTM**: maintains a replay buffer of low-anomaly-score (normal) samples from past batches; each new batch is trained on current data + buffer samples to prevent catastrophic forgetting. |
+
+---
+
+## Normality Levels
+
+The benchmark is organised into five normality levels that progressively increase cross-domain complexity. N1 uses individual single-domain series; N2–N5 are constructed by concatenating series from different domains to simulate distribution shifts in a streaming scenario.
+
+| Level | Description | Streams |
+|-------|-------------|---------|
+| **N1** | Single-domain series, no distribution shift | Yahoo, Dodgers, MGAB, ECG |
+| **N2** | Two-domain concatenation — cross-domain shift | KDD21 + Yahoo, ECG + MGAB |
+| **N3** | Three-domain concatenation | GHL + MGAB + SensorScope, SMAP + MSL + SMD |
+| **N4** | Four-domain concatenation | ECG + Occupancy + Dodgers + Yahoo |
+| **N5** | Five-domain concatenation — maximum heterogeneity | MSL + SMAP + MGAB + Dodgers + SensorScope |
+
+---
+
+## Datasets
+
+All raw data comes from the [TSB-UAD-Public](https://github.com/TheDatumOrg/TSB-UAD) benchmark. Download the archive and extract it under `data/raw/`.
+
+```
+https://www.thedatum.org/datasets/TSB-UAD-Public.zip
+```
+
+After extraction, the expected structure under `data/raw/` is:
+
+```
+data/raw/
+├── ECG/                MBA_ECG805_data.out
+├── YAHOO/              YahooA3Benchmark-TS42_data.out
+├── Dodgers/            101-freeway-traffic.test.out
+├── Occupancy/          room-occupancy.train.csv@5.out
+├── NASA-SMAP/          T-3.test.out
+├── NASA-MSL/           T-13.test.out
+├── SMD/                machine-3-11.test.csv@35.out
+├── MGAB/               1.test.out
+├── KDD21/              148_UCR_Anomaly_Lab2Cmac011215EPG4_6000_17390_17520.out
+├── GHL/                01_Lev_fault_Temp_corr_seed_11_vars_23.test.csv@4.out
+└── SensorScope/        stb-2.test.out
+```
+
+Each `.out` file contains two columns: the time series values and a binary anomaly label.
+
+---
+
+## Running the Notebook
+
+### Prerequisites
+
+**1. Install Python dependencies**
+
+```bash
+pip install numpy pandas scipy matplotlib scikit-learn tslearn stumpy tqdm jupyter
+```
+
+**2. Install the TSB-UAD library** (provides IForest, OCSVM, LSTM, metrics)
+
+```bash
+git clone https://github.com/TheDatumOrg/TSB-UAD.git notebooks/external/TSB-UAD
+pip install -e notebooks/external/TSB-UAD --no-build-isolation
+```
+
+> The first two steps are also included as the first cell of the notebook, so running **Run All** handles them automatically.
+
+**3. Download and place the datasets** (see [Datasets](#datasets) above)
+
+### Run
+
+Open `notebooks/Streamify_Time_Series_Anomaly_Detection.ipynb` in Jupyter or VS Code and click **Run All**.
+
+The notebook is self-contained and auto-detects the project root regardless of whether it is launched from the project root or from inside `notebooks/`.
+
+### Caching
+
+Every heavy computation cell checks whether its output CSV already exists in `results/metrics/`. If it does, the result is loaded from disk and the computation is skipped. This means:
+
+- Running the full notebook once populates the cache.
+- Subsequent **Run All** executions complete in seconds for already-computed results.
+- To force a recomputation, delete the corresponding file from `results/metrics/`.
+
+The same caching logic applies to the N2–N5 normality streams in `data/normalities/`.
+
+---
+
+## Project Structure
+
+```
+.
+├── data/
+│   ├── raw/                   # TSB-UAD-Public source files (not tracked by git)
+│   └── normalities/           # Concatenated multi-domain streams N2–N5 (auto-generated)
+├── notebooks/
+│   ├── Streamify_Time_Series_Anomaly_Detection.ipynb
+│   └── external/              # TSB-UAD library clone (not tracked by git)
+├── results/
+│   ├── metrics/               # CSV evaluation results per method/variant
+│   └── figures/               # Generated plots (PNG, 150 dpi)
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Outputs
+
+### Metrics (`results/metrics/`)
+
+| File | Method |
+|------|--------|
+| `isolation_forest_metrics.csv` | IForest — offline |
+| `isolation_forest_streaming_metrics_df.csv` | IForest — V1 Naïve Streaming |
+| `isolation_forest_simple_improved_streaming_metrics_df.csv` | IForest — V2 Drift-Aware |
+| `ocsvm_metrics.csv` | OCSVM — offline |
+| `ocsvm_metrics_batch_3000_2.csv` | OCSVM — V1 Naïve Streaming |
+| `ocsvm_metrics_batch_3000_v2_2.csv` | OCSVM — V2 KMeans-Warm |
+| `lstm_metrics.csv` | LSTM — offline |
+| `lstm_naive_metrics.csv` | LSTM — V1 Naïve Streaming |
+| `lstm_incremental_metrics.csv` | LSTM — V2 Experience Replay |
+| `sand_metrics.csv` | SAND — online streaming baseline |
+
+Each CSV contains per-dataset rows with columns: `dataset`, `AUC_ROC`, `F`, `runtime`, and method-specific metadata.
+
+### Figures (`results/figures/`)
+
+| File | Content |
+|------|---------|
+| `eda_file_length.png` | Time series length per dataset |
+| `eda_anomalies.png` | Number of anomalous points per dataset |
+| `eda_anomaly_pct.png` | Anomaly percentage per dataset |
+| `baseline_auc_roc.png` | AUC-ROC: IForest vs OCSVM vs SAND (offline) |
+| `baseline_fscore.png` | F-Score: IForest vs OCSVM vs SAND (offline) |
+| `baseline_runtime.png` | Runtime: IForest vs OCSVM vs SAND (offline) |
+| `iforest_v1_v2_AUC_ROC.png` | IForest — Naïve vs Drift-Aware streaming |
+| `iforest_v1_v2_F.png` | IForest — F-Score streaming comparison |
+| `iforest_v1_v2_runtime.png` | IForest — Runtime streaming comparison |
+| `ocsvm_v1_v2_auc_roc.png` | OCSVM — Naïve vs KMeans-Warm streaming |
+| `ocsvm_v1_v2_fscore.png` | OCSVM — F-Score streaming comparison |
+| `ocsvm_v1_v2_runtime.png` | OCSVM — Runtime streaming comparison |
+| `lstm_full_AUC_ROC.png` | LSTM — Offline vs Naïve vs Experience Replay |
+| `lstm_full_F.png` | LSTM — F-Score three-way comparison |
+| `lstm_full_runtime.png` | LSTM — Runtime three-way comparison |
+| `poster_grand_heatmap_auc_roc.png` | AUC-ROC heatmap: all methods × all datasets |
+| `poster_grand_heatmap_fscore.png` | F-Score heatmap: all methods × all datasets |
+| `poster_avg_performance.png` | Average AUC-ROC bar chart across all methods |
+| `poster_streaming_improvement.png` | Offline vs V1 vs V2 per method family |
+| `poster_runtime_analysis.png` | Runtime heatmap + accuracy–runtime scatter |
+| `poster_ts_samples.png` | Example time series with anomaly regions |
