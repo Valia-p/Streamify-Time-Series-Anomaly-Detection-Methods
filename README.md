@@ -52,28 +52,34 @@ The benchmark is organised into five normality levels that progressively increas
 
 ## Datasets
 
-All raw data comes from the [TSB-UAD-Public](https://github.com/TheDatumOrg/TSB-UAD) benchmark. Download the archive and extract it under `data/raw/`.
+All raw data comes from the [TSB-UAD-Public](https://github.com/TheDatumOrg/TSB-UAD) benchmark. Download the archive and extract it so that the `TSB-UAD-Public` folder lands under `data/raw/`:
 
 ```
 https://www.thedatum.org/datasets/TSB-UAD-Public.zip
 ```
 
-After extraction, the expected structure under `data/raw/` is:
-
 ```
 data/raw/
-├── ECG/                MBA_ECG805_data.out
-├── YAHOO/              YahooA3Benchmark-TS42_data.out
-├── Dodgers/            101-freeway-traffic.test.out
-├── Occupancy/          room-occupancy.train.csv@5.out
-├── NASA-SMAP/          T-3.test.out
-├── NASA-MSL/           T-13.test.out
-├── SMD/                machine-3-11.test.csv@35.out
-├── MGAB/               1.test.out
-├── KDD21/              148_UCR_Anomaly_Lab2Cmac011215EPG4_6000_17390_17520.out
-├── GHL/                01_Lev_fault_Temp_corr_seed_11_vars_23.test.csv@4.out
-└── SensorScope/        stb-2.test.out
+└── TSB-UAD-Public/   ← extract here; keep the internal structure as-is
 ```
+
+The only files used by this project are:
+
+| Folder | File |
+|--------|------|
+| `ECG/` | `MBA_ECG805_data.out` |
+| `YAHOO/` | `YahooA3Benchmark-TS42_data.out` |
+| `Dodgers/` | `101-freeway-traffic.test.out` |
+| `Occupancy/` | `room-occupancy.train.csv@5.out` |
+| `NASA-SMAP/` | `T-3.test.out` |
+| `NASA-MSL/` | `T-13.test.out` |
+| `SMD/` | `machine-3-11.test.csv@35.out` |
+| `MGAB/` | `1.test.out` |
+| `KDD21/` | `148_UCR_Anomaly_Lab2Cmac011215EPG4_6000_17390_17520.out` |
+| `GHL/` | `01_Lev_fault_Temp_corr_seed_11_vars_23.test.csv@4.out` |
+| `SensorScope/` | `stb-2.test.out` |
+
+All of these are included in the full archive — no need to pick them manually.
 
 Each `.out` file contains two columns: the time series values and a binary anomaly label.
 
@@ -123,7 +129,10 @@ The notebook handles the rest automatically:
 
 **Download and place the datasets** (see [Datasets](#datasets) above) — this is the only manual step required.
 
-Everything else (installing dependencies, cloning TSB-UAD, creating output directories) is handled automatically by the first cells of the notebook.
+Everything else is handled automatically by the first cells of the notebook:
+- Adds the bundled `TSB-UAD` library to `sys.path` (no manual `pip install` needed)
+- Sets `RAW_DATA_DIR` to `data/raw/TSB-UAD-Public/` automatically
+- Creates all output directories (`results/metrics/`, `results/figures/`, etc.)
 
 ### Run
 
