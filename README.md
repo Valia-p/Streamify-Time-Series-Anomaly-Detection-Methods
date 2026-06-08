@@ -93,7 +93,7 @@ The datasets and generated normality streams are already available in a shared G
 
 **[📁 Open shared Drive folder](https://drive.google.com/drive/folders/1ZFyQSgmssUhbzMHfEbDan7Fo4_2XHLaC?usp=sharing)**
 
-Add a shortcut to your Drive under `My Drive/Time-Series Anomaly Detection/` so the notebook can find them at the expected path. Alternatively, download [TSB-UAD-Public.zip](https://www.thedatum.org/datasets/TSB-UAD-Public.zip), extract it, and place the folders under:
+Add a shortcut for TSB-UAD-Public folder to your Drive under `My Drive/Time-Series Anomaly Detection/` so the notebook can find them at the expected path. Alternatively, download [TSB-UAD-Public.zip](https://www.thedatum.org/datasets/TSB-UAD-Public.zip), extract it, and place the folders under:
 
 ```
 My Drive/Time-Series Anomaly Detection/TSB-UAD-Public/
