@@ -85,11 +85,31 @@ There are two ways to run the experiments — choose whichever fits your setup.
 
 ### Option 1 — Google Colab
 
-A ready-to-run Colab version of the notebook is available here:
-
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KJ0Am3HKL1kJlk9lhpyoVbI43nJzOc_W?usp=sharing)
 
-The Colab notebook reads datasets from Google Drive. Mount your Drive and place the TSB-UAD-Public datasets under `MyDrive/Time-Series Anomaly Detection/TSB-UAD-Public/` before running.
+**1. Upload the datasets to Google Drive**
+
+Download [TSB-UAD-Public.zip](https://www.thedatum.org/datasets/TSB-UAD-Public.zip), extract it, and place the dataset folders under:
+
+```
+My Drive/Time-Series Anomaly Detection/TSB-UAD-Public/
+```
+
+The expected structure matches the one described in [Datasets](#datasets) above.
+
+**2. Open the notebook and click Run All**
+
+The notebook handles the rest automatically:
+- Clones TSB-UAD from GitHub and installs all dependencies
+- Mounts your Google Drive (a one-time authorization popup will appear)
+- Reads datasets from Drive and saves generated normality streams to `My Drive/Time-Series Anomaly Detection/Concat-Data/`
+
+> **Alternative — no Drive required:** If you prefer not to use Google Drive, uncomment the following lines in the notebook instead of mounting Drive:
+> ```python
+> # !wget https://www.thedatum.org/datasets/TSB-UAD-Public.zip
+> # !unzip TSB-UAD-Public.zip -d data/
+> ```
+> This downloads the datasets directly into the Colab runtime. Note that the data will need to be re-downloaded each time the session is restarted.
 
 ---
 
@@ -97,22 +117,9 @@ The Colab notebook reads datasets from Google Drive. Mount your Drive and place 
 
 ### Prerequisites
 
-**1. Install Python dependencies**
+**Download and place the datasets** (see [Datasets](#datasets) above) — this is the only manual step required.
 
-```bash
-pip install numpy pandas scipy matplotlib scikit-learn tslearn stumpy tqdm jupyter
-```
-
-**2. Install the TSB-UAD library** (provides IForest, OCSVM, LSTM, metrics)
-
-```bash
-git clone https://github.com/TheDatumOrg/TSB-UAD.git notebooks/external/TSB-UAD
-pip install -e notebooks/external/TSB-UAD --no-build-isolation
-```
-
-> The first two steps are also included as the first cell of the notebook, so running **Run All** handles them automatically.
-
-**3. Download and place the datasets** (see [Datasets](#datasets) above)
+Everything else (installing dependencies, cloning TSB-UAD, creating output directories) is handled automatically by the first cells of the notebook.
 
 ### Run
 
@@ -122,13 +129,13 @@ The notebook is self-contained and auto-detects the project root regardless of w
 
 ### Caching
 
-Every heavy computation cell checks whether its output CSV already exists in `results/metrics/`. If it does, the result is loaded from disk and the computation is skipped. This means:
+Every heavy computation cell checks whether its output already exists on disk before running. Normality streams are cached in `data/normalities/` and evaluation results in `results/metrics/`. If the file exists, the computation is skipped. This means:
 
 - Running the full notebook once populates the cache.
 - Subsequent **Run All** executions complete in seconds for already-computed results.
 - To force a recomputation, delete the corresponding file from `results/metrics/`.
 
-The same caching logic applies to the N2–N5 normality streams in `data/normalities/`.
+The same caching logic applies to the normality streams in `data/normalities/`.
 
 ---
 
