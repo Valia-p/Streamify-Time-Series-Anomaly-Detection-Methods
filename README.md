@@ -87,9 +87,13 @@ There are two ways to run the experiments — choose whichever fits your setup.
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KJ0Am3HKL1kJlk9lhpyoVbI43nJzOc_W?usp=sharing)
 
-**1. Upload the datasets to Google Drive**
+**1. Get access to the datasets on Google Drive**
 
-Download [TSB-UAD-Public.zip](https://www.thedatum.org/datasets/TSB-UAD-Public.zip), extract it, and place the dataset folders under:
+The datasets and generated normality streams are already available in a shared Google Drive folder:
+
+**[📁 Open shared Drive folder](https://drive.google.com/drive/folders/1ZFyQSgmssUhbzMHfEbDan7Fo4_2XHLaC?usp=sharing)**
+
+Add a shortcut to your Drive under `My Drive/Time-Series Anomaly Detection/` so the notebook can find them at the expected path. Alternatively, download [TSB-UAD-Public.zip](https://www.thedatum.org/datasets/TSB-UAD-Public.zip), extract it, and place the folders under:
 
 ```
 My Drive/Time-Series Anomaly Detection/TSB-UAD-Public/
